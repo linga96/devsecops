@@ -20,3 +20,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '6'
+- task: CmdLine@2
+  displayName: 'build'
+  inputs:
+    script: 'npm run agency-ald-ui:build -- -- configuration=development --output-path=./dist/apps/agency-ald-ui'
